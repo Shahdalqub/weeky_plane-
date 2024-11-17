@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
 
   
-  resources :tasks
+  #resources :tasks
   devise_for :users, sign_out_via: :get
+  resources :tasks do
+    resources :subtasks, only: [:index, :new, :create, :edit, :update, :destroy]
+  end
   root "tasks#index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

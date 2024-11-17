@@ -1,0 +1,6 @@
+<h1>New Subtask for <%= @task.title %></h1>
+
+<%= render 'form', task: @task, subtask: @subtask %>
+
+<%= link_to 'Back to Subtasks', task_subtasks_path(@task) %>
+

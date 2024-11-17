@@ -1,6 +1,20 @@
 <p style="color: green"><%= notice %></p>
 
 <%= render @task %>
+<h1><%= @task.title %></h1>
+<p><%= @task.description %></p>
+
+<h2>Subtasks</h2>
+<%= link_to 'Add Subtask', new_task_subtask_path(@task) %>
+
+<ul>
+  <% @task.subtasks.each do |subtask| %>
+    <li>
+      <%= subtask.title %> - <%= subtask.completed ? 'Completed' : 'Pending' %>
+    </li>
+  <% end %>
+</ul>
+
 
 <div>
   <%= link_to "Edit this task", edit_task_path(@task) %> |

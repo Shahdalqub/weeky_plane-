@@ -1,0 +1,14 @@
+<h1>Subtasks for <%= @task.title %></h1>
+
+<%= link_to 'New Subtask', new_task_subtask_path(@task) %>
+<%= link_to 'Back to Tasks', tasks_path, class: 'btn btn-secondary' %>
+<ul>
+  <% @subtasks.each do |subtask| %>
+    <li>
+      <%= subtask.title %> - <%= subtask.completed ? 'Completed' : 'Pending' %>
+      <%= link_to 'Edit', edit_task_subtask_path(@task, subtask) %> |
+      <%= button_to 'Delete', task_subtask_path(@task, subtask), method: :delete, data: { confirm: 'Are you sure?' } %>
+    </li>
+  <% end %>
+</ul>
+
